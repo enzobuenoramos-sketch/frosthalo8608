@@ -1,9 +1,39 @@
-    body {
-        background-color: black;
-    }
+body { 
+    /* Cria a textura preta de linhas diagonais em todo o fundo do site */
+    background-color: #111111; 
+    background-image: repeating-linear-gradient(45deg, #111111, #111111 10px, #161616 10px, #161616 20px);
     
+    text-align: center; 
+    padding: 20px;      
+    font-family: sans-serif; 
+} 
 
-    h1 {
-        color: dimgray;
-        font-size: 75px;
-    }
+h1 { 
+    color: white;         /* Letras totalmente brancas para destacar na textura */
+    font-size: 40px;    
+    margin-top: 50px;   
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para descolar o texto do fundo */
+    transition: 0.3s;     
+}
+
+h1:hover {
+    color: #00f2fe;       /* O título brilha em azul neon ao passar o mouse */
+    text-shadow: 0 0 15px #00f2fe; 
+}
+
+iframe {
+    width: 100%;       
+    max-width: 600px;  
+    height: 350px;     
+    display: block;     
+    margin: 20px auto;  
+    border: 2px solid #00f2fe;    /* Borda azul neon ao redor dos vídeos */
+    border-radius: 12px;          /* Cantos arredondados modernos */
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); /* Brilho neon suave padrão */
+    transition: 0.3s;
+}
+
+iframe:hover {
+    transform: scale(1.02);       /* O vídeo dá um leve salto para frente */
+    box-shadow: 0 0 25px #00f2fe; /* O brilho neon fica super forte e iluminado */
+}
