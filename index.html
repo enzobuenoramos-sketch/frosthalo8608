@@ -3,151 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlayStation Dashboard UI</title>
+    <title>GAMEHUB PS5</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="app-layout">
-        
-        <!-- SIDEBAR LATERAL DA PSN -->
-        <aside class="sidebar">
-            <div class="ps-logo">
-                <svg viewBox="0 0 50 50" class="ps-icon-svg"><path fill="#0070d1" d="M25,2 C12.3,2 2,12.3 2,25 C2,37.7 12.3,48 25,48 C37.7,48 48,37.7 48,25 C48,12.3 37.7,2 25,2 Z M25,44 C14.5,44 6,35.5 6,25 C6,14.5 14.5,6 25,6 C35.5,6 44,14.5 44,25 C44,35.5 35.5,44 25,44 Z"/></svg>
+    <!-- CABEÇALHO -->
+    <header class="header-ps">
+        <div class="ps-symbols">△ ◯ ✕ ⬜</div>
+        <h1>GAMEHUB <span>PS5</span></h1>
+        <p>Sua coleção de gameplays e trailers</p>
+    </header>
+
+    <!-- CONTAINER DA GALERIA -->
+    <main class="gallery-container">
+
+        <!-- CARD 1 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">✕</span>
+                <h2>The Last of Us Part II</h2>
             </div>
-            <nav class="nav-menu">
-                <a href="#" class="nav-item active">⊞</a>
-                <a href="#" class="nav-item">🎮</a>
-                <a href="#" class="nav-item">🛍️</a>
-                <a href="#" class="nav-item">👥</a>
-                <a href="#" class="nav-item">⚙️</a>
-            </nav>
-        </aside>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us 2" allowfullscreen></iframe>
+            </div>
+        </div>
 
-        <!-- CONTEÚDO PRINCIPAL (DASHBOARD) -->
-        <main class="main-content">
+        <!-- CARD 2 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">◯</span>
+                <h2>Resident Evil 4 Remake</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/E69tKrfEQag" title="Resident Evil 4 Remake" allowfullscreen></iframe>
+            </div>
+        </div>
 
-            <!-- BARRA SUPERIOR -->
-            <header class="top-bar">
-                <div class="user-greeting">
-                    <span class="welcome-tag">BEM-VINDO AO GAMEHUB</span>
-                    <h1>MINHA BIBLIOTECA</h1>
-                </div>
-                <div class="top-actions">
-                    <span class="ps-symbol">△</span>
-                    <span class="ps-symbol">◯</span>
-                    <span class="ps-symbol">✕</span>
-                    <span class="ps-symbol">⬜</span>
-                </div>
-            </header>
+        <!-- CARD 3 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">△</span>
+                <h2>Cuphead</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/NN-9SQXoi50" title="Cuphead" allowfullscreen></iframe>
+            </div>
+        </div>
 
-            <!-- DESTAQUE PRINCIPAL (HERO) -->
-            <section class="hero-card">
-                <div class="hero-info">
-                    <span class="badge">EM DESTAQUE • PS5</span>
-                    <h2>THE LAST OF US PART II</h2>
-                    <p>Vivencie a jornada emocionante de Ellie nesta sequência aclamada.</p>
-                </div>
-                <div class="hero-video">
-                    <iframe src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us Part II" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </section>
+        <!-- CARD 4 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">⬜</span>
+                <h2>The Last of Us Part I</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/WxjeV10H1F0" title="The Last of Us Part 1" allowfullscreen></iframe>
+            </div>
+        </div>
 
-            <!-- SEÇÃO DE JOGOS RÁPIDOS (GRID) -->
-            <section class="games-section">
-                <div class="section-header">
-                    <h3>JOGOS RECENTES</h3>
-                    <span class="line-glow"></span>
-                </div>
+        <!-- CARD 5 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">✕</span>
+                <h2>The Quarry</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/NZ92e92Tij8" title="The Quarry" allowfullscreen></iframe>
+            </div>
+        </div>
 
-                <div class="grid-games">
+        <!-- CARD 6 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">◯</span>
+                <h2>Until Dawn Remake</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/uGCWEoUJ5Dw" title="Until Dawn Remake" allowfullscreen></iframe>
+            </div>
+        </div>
 
-                    <!-- CARD 1 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">✕</span> Resident Evil 4 Remake
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/E69tKrfEQag" title="Resident Evil 4 Remake" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
+        <!-- CARD 7 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">△</span>
+                <h2>Valorant</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/NiO6QjjeU_g" title="Valorant" allowfullscreen></iframe>
+            </div>
+        </div>
 
-                    <!-- CARD 2 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">◯</span> Cuphead
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/NN-9SQXoi50" title="Cuphead" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
+        <!-- CARD 8 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">⬜</span>
+                <h2>Red Dead Redemption 2</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/eaW0tYpxyp0" title="Red Dead Redemption 2" allowfullscreen></iframe>
+            </div>
+        </div>
 
-                    <!-- CARD 3 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">△</span> The Last of Us Part I
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/WxjeV10H1F0" title="The Last of Us Part I" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
+        <!-- CARD 9 -->
+        <div class="game-card">
+            <div class="card-title">
+                <span class="symbol-icon">✕</span>
+                <h2>The Walking Dead: Final Season</h2>
+            </div>
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/2YH2V6JpBZw" title="The Walking Dead" allowfullscreen></iframe>
+            </div>
+        </div>
 
-                    <!-- CARD 4 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">⬜</span> The Quarry
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/NZ92e92Tij8" title="The Quarry" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
+    </main>
 
-                    <!-- CARD 5 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">✕</span> Until Dawn Remake
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/uGCWEoUJ5Dw" title="Until Dawn Remake" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- CARD 6 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">◯</span> Valorant
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/NiO6QjjeU_g" title="Valorant" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- CARD 7 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">△</span> Red Dead Redemption 2
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/eaW0tYpxyp0" title="Red Dead Redemption 2" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                    <!-- CARD 8 -->
-                    <div class="card-game">
-                        <div class="card-tag">
-                            <span class="ps-symbol-mini">⬜</span> The Walking Dead: Final Season
-                        </div>
-                        <div class="video-box">
-                            <iframe src="https://www.youtube.com/embed/2YH2V6JpBZw" title="The Walking Dead" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-        </main>
-    </div>
+    <footer class="footer-ps">
+        <p>△ ◯ ✕ ⬜ • PlayStation Style Gamehub</p>
+    </footer>
 
 </body>
 </html>
