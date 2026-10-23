@@ -89,3 +89,33 @@
         <!-- Formulario/Tabela de Edicao (Oculto por padrão) -->
         <div id="area-edicao" style="display: none;">
           <h3>Editar Notas e Faltas</h3>
+          <p class="instrucoes-edicao">Digite notas de 0 a 10 (use ponto ou vírgula) e faltas inteiras (0 ou mais).</p>
+          <table class="tabela-edicao">
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>1º Tri</th>
+                <th>2º Tri</th>
+                <th>3º Tri</th>
+                <th>Faltas 1º Tri</th>
+                <th>Faltas 2º Tri</th>
+                <th>Faltas 3º Tri</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela-edicao">
+              <!-- Gerado via JS -->
+            </tbody>
+          </table>
+          <div class="acoes-edicao">
+            <button id="btn-salvar" onclick="salvarAlteracoes()">Salvar alterações</button>
+            <button id="btn-cancelar" onclick="fecharEdicao()">Cancelar</button>
+          </div>
+          <p id="msg-edicao" class="msg-status"></p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
