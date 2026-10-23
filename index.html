@@ -1,128 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMEHUB PS5</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletim Digital - 8º Ano</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
-    <header class="header-ps">
-        <div class="ps-symbols">△ ◯ ✕ ⬜</div>
-        <h1>GAMEHUB <span>PS5</span></h1>
-        <p>Sua coleção de gameplays e trailers</p>
+  <div class="container">
+    <!-- Cabeçalho do Boletim -->
+    <header class="cabecalho">
+      <h1>Boletim Digital</h1>
+      <p class="subtitulo">Estudante Exemplo — 8º Ano</p>
     </header>
 
-    <!-- CONTAINER DA GALERIA -->
-    <main class="gallery-container">
+    <!-- Área Superior com Cards de Resumo -->
+    <section class="cards-container">
+      <div class="card">
+        <h3>Média Geral</h3>
+        <p id="card-media" class="valor-card">—</p>
+      </div>
 
-        <!-- CARD 1 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">✕</span>
-                <h2>The Last of Us Part II</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us 2" allowfullscreen></iframe>
-            </div>
-        </div>
+      <div class="card">
+        <h3>Total de Faltas</h3>
+        <p id="card-faltas" class="valor-card">—</p>
+      </div>
 
-        <!-- CARD 2 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">◯</span>
-                <h2>Resident Evil 4 Remake</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/E69tKrfEQag" title="Resident Evil 4 Remake" allowfullscreen></iframe>
-            </div>
-        </div>
+      <div class="card">
+        <h3>Bom Desempenho</h3>
+        <p id="card-bom-desempenho" class="valor-card">—</p>
+      </div>
 
-        <!-- CARD 3 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">△</span>
-                <h2>Cuphead</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/NN-9SQXoi50" title="Cuphead" allowfullscreen></iframe>
-            </div>
-        </div>
+      <div class="card">
+        <h3>Precisa de Atenção</h3>
+        <p id="card-atencao" class="valor-card">—</p>
+      </div>
 
-        <!-- CARD 4 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">⬜</span>
-                <h2>The Last of Us Part I</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/WxjeV10H1F0" title="The Last of Us Part 1" allowfullscreen></iframe>
-            </div>
-        </div>
+      <div class="card">
+        <h3>Frequência</h3>
+        <p id="card-frequencia" class="valor-card">—</p>
+        <span class="subtexto-card">Frequência adequada</span>
+      </div>
+    </section>
 
-        <!-- CARD 5 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">✕</span>
-                <h2>The Quarry</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/NZ92e92Tij8" title="The Quarry" allowfullscreen></iframe>
-            </div>
-        </div>
+    <!-- Tabela Responsiva de Disciplinas -->
+    <section class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>1º Tri</th>
+            <th>2º Tri</th>
+            <th>3º Tri</th>
+            <th>Média</th>
+            <th>Faltas</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+          <!-- As linhas da tabela serão geradas pelo JavaScript -->
+        </tbody>
+      </table>
+    </section>
+  </div>
 
-        <!-- CARD 6 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">◯</span>
-                <h2>Until Dawn Remake</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/uGCWEoUJ5Dw" title="Until Dawn Remake" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- CARD 7 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">△</span>
-                <h2>Valorant</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/NiO6QjjeU_g" title="Valorant" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- CARD 8 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">⬜</span>
-                <h2>Red Dead Redemption 2</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/eaW0tYpxyp0" title="Red Dead Redemption 2" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <!-- CARD 9 -->
-        <div class="game-card">
-            <div class="card-title">
-                <span class="symbol-icon">✕</span>
-                <h2>The Walking Dead: Final Season</h2>
-            </div>
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/2YH2V6JpBZw" title="The Walking Dead" allowfullscreen></iframe>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="footer-ps">
-        <p>△ ◯ ✕ ⬜ • PlayStation Style Gamehub</p>
-    </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>

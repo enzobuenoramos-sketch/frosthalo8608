@@ -1,204 +1,133 @@
-// =====================================================
-// BOLETIM DIGITAL - 8º ANO
-// Dados fictícios para demonstração
-// =====================================================
-
-// disciplina, 1º tri, 2º tri, 3º tri, faltas
-const disciplinas = [
-    ["Língua Portuguesa", 82, "7,8", 85, [2, 1, 1]],
-    ["Matemática", 52, "5,8", null, [3, 2, 1]],
-    ["Ciências", "8,1", 76, 8.0, [1, 2, 0]],
-    ["História", 7.0, 84, null, [1, 1, 1]],
-    ["Geografia", 68, 7.3, "7,9", [0, 1, 1]],
-    ["Língua Inglesa", 86, "8,1", 8.7, [1, 0, 0]],
-    ["Arte", 9.0, 92, null, [1, 1, 0]],
-    ["Educação Física", 95, 9.0, "9,4", [0, 1, 0]],
-    ["Educação Digital", 88, 9.1, 93, [1, 0, 1]],
-    ["Educação Financeira", 74, "7,8", null, [1, 1, 1]],
-    ["Estudo Orientado", 8.0, 83, "8,5", [0, 1, 0]],
-    ["Redação e Leitura", 62, "6,8", null, [2, 1, 1]],
-    ["Pensamento Lógico", 48, 5.6, "6,0", [2, 2, 1]],
-    ["Literatura Arte e Movimento", "7,7", 80, null, [1, 0, 1]],
-    ["Práticas Experimentais", 58, "6,2", 6.4, [1, 1, 1]]
+// 1. DADOS FICTÍCIOS BRUTOS DO 8º ANO
+const dadosBoletim = [
+  { disciplina: "Língua Portuguesa", tri1: 82, tri2: "7,8", tri3: 85, faltas: [2, 1, 1] },
+  { disciplina: "Matemática", tri1: 52, tri2: "5,8", tri3: null, faltas: [3, 2, 1] },
+  { disciplina: "Ciências", tri1: "8,1", tri2: 76, tri3: 8.0, faltas: [1, 2, 0] },
+  { disciplina: "História", tri1: 7.0, tri2: 84, tri3: null, faltas: [1, 1, 1] },
+  { disciplina: "Geografia", tri1: 68, tri2: 7.3, tri3: "7,9", faltas: [0, 1, 1] },
+  { disciplina: "Língua Inglesa", tri1: 86, tri2: "8,1", tri3: 8.7, faltas: [1, 0, 0] },
+  { disciplina: "Arte", tri1: 9.0, tri2: 92, tri3: null, faltas: [1, 1, 0] },
+  { disciplina: "Educação Física", tri1: 95, tri2: 9.0, tri3: "9,4", faltas: [0, 1, 0] },
+  { disciplina: "Educação Digital", tri1: 88, tri2: 9.1, tri3: 93, faltas: [1, 0, 1] },
+  { disciplina: "Educação Financeira", tri1: 74, tri2: "7,8", tri3: null, faltas: [1, 1, 1] },
+  { disciplina: "Estudo Orientado", tri1: 8.0, tri2: 83, tri3: "8,5", faltas: [0, 1, 0] },
+  { disciplina: "Redação e Leitura", tri1: 62, tri2: "6,8", tri3: null, faltas: [2, 1, 1] },
+  { disciplina: "Pensamento Lógico", tri1: 48, tri2: 5.6, tri3: "6,0", faltas: [2, 2, 1] },
+  { disciplina: "Literatura Arte e Movimento", tri1: "7,7", tri2: 80, tri3: null, faltas: [1, 0, 1] },
+  { disciplina: "Práticas Experimentais", tri1: 58, tri2: "6,2", tri3: 6.4, faltas: [1, 1, 1] }
 ];
 
-
-// =====================================================
-// NORMALIZAR NOTA
-// =====================================================
-
+// 2. FUNÇÃO PARA NORMALIZAR AS NOTAS (0 a 10)
 function normalizarNota(valor) {
-    if (valor === null || valor === undefined || valor === "") {
-        return null;
-    }
-
-    const numero = Number(String(valor).replace(",", "."));
-
-    if (Number.isNaN(numero)) {
-        return null;
-    }
-
-    if (numero >= 0 && numero <= 10) {
-        return numero;
-    }
-
-    if (numero > 10 && numero <= 100) {
-        return numero / 10;
-    }
-
+  // Trata notas não lançadas, nulas ou vazias
+  if (valor === null || valor === undefined || valor === "") {
     return null;
+  }
+
+  // Converter para texto para substituir vírgula por ponto
+  let valorTexto = String(valor).replace(',', '.');
+  let numero = parseFloat(valorTexto);
+
+  // Se não for um número válido, descarta
+  if (isNaN(numero)) {
+    return null;
+  }
+
+  // Valores maiores que 10 e menores ou iguais a 100 são divididos por 10
+  if (numero > 10 && numero <= 100) {
+    numero = numero / 10;
+  }
+
+  // Garante que está dentro da escala permitida (0 a 10)
+  if (numero >= 0 && numero <= 10) {
+    return numero;
+  }
+
+  return null; // Fora das regras
 }
 
+// 3. PROCESSAMENTO E EXIBIÇÃO NO BOLETIM
+function carregarBoletim() {
+  const corpoTabela = document.getElementById("corpo-tabela");
+  corpoTabela.innerHTML = "";
 
-// =====================================================
-// CALCULAR MÉDIA
-// =====================================================
+  let somaMediasGerais = 0;
+  let qtdDisciplinasComMedia = 0;
+  let totalFaltasGeral = 0;
+  let contBomDesempenho = 0;
+  let contAtencao = 0;
 
-function calcularMedia(notas) {
-    const validas = notas
-        .map(normalizarNota)
-        .filter(nota => nota !== null);
+  dadosBoletim.forEach((item) => {
+    // Normalização das notas dos trimestres
+    const n1 = normalizarNota(item.tri1);
+    const n2 = normalizarNota(item.tri2);
+    const n3 = normalizarNota(item.tri3);
 
-    if (validas.length === 0) {
-        return null;
+    // Cálculo da Média (ignora notas ausentes)
+    const notasValidas = [n1, n2, n3].filter(n => n !== null);
+    let media = null;
+
+    if (notasValidas.length > 0) {
+      const soma = notasValidas.reduce((acc, curr) => acc + curr, 0);
+      media = soma / notasValidas.length;
+      somaMediasGerais += media;
+      qtdDisciplinasComMedia++;
     }
 
-    const soma = validas.reduce(
-        (total, nota) => total + nota,
-        0
-    );
+    // Soma do total de faltas da disciplina
+    const totalFaltasDisciplina = item.faltas.reduce((acc, curr) => acc + curr, 0);
+    totalFaltasGeral += totalFaltasDisciplina;
 
-    return soma / validas.length;
-}
+    // Definição da Situação
+    let situacaoTexto = "";
+    let classeSituacao = "";
 
-
-// =====================================================
-// SOMAR FALTAS
-// =====================================================
-
-function calcularFaltas(faltas) {
-    return faltas.reduce(
-        (total, falta) => total + falta,
-        0
-    );
-}
-
-
-// =====================================================
-// DEFINIR SITUAÇÃO
-// =====================================================
-
-function definirSituacao(media) {
     if (media === null) {
-        return "Nota ainda não disponível";
+      situacaoTexto = "Nota ainda não disponível";
+      classeSituacao = "situacao-indisponivel";
+    } else if (media >= 6.0) {
+      situacaoTexto = "Bom desempenho";
+      classeSituacao = "situacao-bom";
+      contBomDesempenho++;
+    } else {
+      situacaoTexto = "Atenção";
+      classeSituacao = "situacao-atencao";
+      contAtencao++;
     }
 
-    if (media >= 6) {
-        return "Bom desempenho";
-    }
+    // Formatação das notas para exibição na tabela
+    const txt1 = n1 !== null ? n1.toFixed(1).replace('.', ',') : "—";
+    const txt2 = n2 !== null ? n2.toFixed(1).replace('.', ',') : "—";
+    const txt3 = n3 !== null ? n3.toFixed(1).replace('.', ',') : "—";
+    const txtMedia = media !== null ? media.toFixed(1).replace('.', ',') : "—";
 
-    return "Atenção";
+    // Criação da linha da tabela dinamicamente
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td><strong>${item.disciplina}</strong></td>
+      <td>${txt1}</td>
+      <td>${txt2}</td>
+      <td>${txt3}</td>
+      <td><strong>${txtMedia}</strong></td>
+      <td>${totalFaltasDisciplina}</td>
+      <td class="${classeSituacao}">${situacaoTexto}</td>
+    `;
+    corpoTabela.appendChild(tr);
+  });
+
+  // Atualização dos Cards de Resumo
+  const mediaGeralCalculada = qtdDisciplinasComMedia > 0 ? (somaMediasGerais / qtdDisciplinasComMedia).toFixed(1).replace('.', ',') : "—";
+  
+  document.getElementById("card-media").textContent = mediaGeralCalculada;
+  document.getElementById("card-faltas").textContent = totalFaltasGeral;
+  document.getElementById("card-bom-desempenho").textContent = contBomDesempenho;
+  document.getElementById("card-atencao").textContent = contAtencao;
+
+  // NOTA SOBRE FREQUÊNCIA:
+  // O percentual de 92% abaixo é APENAS DEMONSTRATIVO para esta primeira etapa
+  // e será calculado a partir de dados reais no futuro.
+  document.getElementById("card-frequencia").textContent = "92%";
 }
 
-
-// =====================================================
-// FORMATAR NOTA
-// =====================================================
-
-function formatarNota(nota) {
-    if (nota === null) {
-        return "Ainda não lançada";
-    }
-
-    return nota.toFixed(1).replace(".", ",");
-}
-
-
-// =====================================================
-// CRIAR TABELA
-// =====================================================
-
-function preencherTabela() {
-    const tabela = document.getElementById("tabela-boletim");
-
-    tabela.innerHTML = "";
-
-    disciplinas.forEach(dados => {
-        const nome = dados[0];
-        const notas = dados.slice(1, 4);
-        const faltas = dados[4];
-
-        const notasNormalizadas = notas.map(normalizarNota);
-        const media = calcularMedia(notas);
-        const totalFaltas = calcularFaltas(faltas);
-        const situacao = definirSituacao(media);
-
-        const linha = document.createElement("tr");
-
-        linha.innerHTML = `
-            <td>${nome}</td>
-            <td>${formatarNota(notasNormalizadas[0])}</td>
-            <td>${formatarNota(notasNormalizadas[1])}</td>
-            <td>${formatarNota(notasNormalizadas[2])}</td>
-            <td>${formatarNota(media)}</td>
-            <td>${totalFaltas}</td>
-            <td>${situacao}</td>
-        `;
-
-        tabela.appendChild(linha);
-    });
-}
-
-
-// =====================================================
-// CRIAR RESUMO
-// =====================================================
-
-function preencherResumo() {
-    const medias = disciplinas
-        .map(dados => calcularMedia(dados.slice(1, 4)))
-        .filter(media => media !== null);
-
-    const mediaGeral =
-        medias.reduce((total, media) => total + media, 0)
-        / medias.length;
-
-    const totalFaltas = disciplinas.reduce(
-        (total, dados) => total + calcularFaltas(dados[4]),
-        0
-    );
-
-    const bomDesempenho = disciplinas.filter(dados => {
-        const media = calcularMedia(dados.slice(1, 4));
-        return media !== null && media >= 6;
-    }).length;
-
-    const atencao = disciplinas.filter(dados => {
-        const media = calcularMedia(dados.slice(1, 4));
-        return media !== null && media < 6;
-    }).length;
-
-    document.getElementById("media-geral").textContent =
-        formatarNota(mediaGeral);
-
-    document.getElementById("total-faltas").textContent =
-        totalFaltas;
-
-    document.getElementById("bom-desempenho").textContent =
-        bomDesempenho;
-
-    document.getElementById("atencao").textContent =
-        atencao;
-
-    // Frequência fictícia apenas para demonstração.
-    // No futuro será calculada de outra forma.
-    document.getElementById("frequencia").textContent = "92%";
-}
-
-
-// =====================================================
-// INICIAR
-// =====================================================
-
-preencherTabela();
-preencherResumo();
+// Inicializa a montagem do boletim assim que a página carregar
+carregarBoletim();

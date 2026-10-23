@@ -1,39 +1,124 @@
-body { 
-    /* Cria a textura preta de linhas diagonais em todo o fundo do site */
-    background-color: #111111; 
-    background-image: repeating-linear-gradient(45deg, #111111, #111111 10px, #161616 10px, #161616 20px);
-    
-    text-align: center; 
-    padding: 20px;      
-    font-family: sans-serif; 
-} 
-
-h1 { 
-    color: white;         /* Letras totalmente brancas para destacar na textura */
-    font-size: 40px;    
-    margin-top: 50px;   
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para descolar o texto do fundo */
-    transition: 0.3s;     
+/* Reset básico para remover margens padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1:hover {
-    color: #00f2fe;       /* O título brilha em azul neon ao passar o mouse */
-    text-shadow: 0 0 15px #00f2fe; 
+/* Fundo geral da página */
+body {
+  background-color: #f8f9fa;
+  color: #333333;
+  padding: 20px;
 }
 
-iframe {
-    width: 100%;       
-    max-width: 600px;  
-    height: 350px;     
-    display: block;     
-    margin: 20px auto;  
-    border: 2px solid #00f2fe;    /* Borda azul neon ao redor dos vídeos */
-    border-radius: 12px;          /* Cantos arredondados modernos */
-    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); /* Brilho neon suave padrão */
-    transition: 0.3s;
+/* Container centralizado */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-iframe:hover {
-    transform: scale(1.02);       /* O vídeo dá um leve salto para frente */
-    box-shadow: 0 0 25px #00f2fe; /* O brilho neon fica super forte e iluminado */
+/* Cabeçalho com cor principal Vermelha */
+.cabecalho {
+  background-color: #d32f2f;
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+}
+
+.cabecalho h1 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Cards com Sombra Suave */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-card {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.subtexto-card {
+  display: block;
+  font-size: 0.75rem;
+  color: #2e7d32;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Tabela Responsiva */
+.tabela-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto; /* Permite rolar pro lado no celular */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 600px;
+}
+
+th {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+}
+
+/* Destaques das Situações */
+.situacao-bom {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.situacao-atencao {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.situacao-indisponivel {
+  color: #757575;
+  font-style: italic;
 }
