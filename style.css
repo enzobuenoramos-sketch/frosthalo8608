@@ -113,4 +113,221 @@ body {
 }
 
 .acoes-edicao button#btn-cancelar {
-  background-color: #6c
+  background-color: #6c757d;
+}
+
+.acoes-edicao button#btn-cancelar:hover {
+  background-color: #5a6268;
+}
+
+.bar-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.msg-status {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Cards com Sombra Suave */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.valor-card {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.subtexto-card {
+  display: block;
+  font-size: 0.75rem;
+  color: #2e7d32;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Tabela Responsiva */
+.tabela-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto; /* Permite rolar pro lado no celular */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 600px;
+}
+
+th {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 12px;
+  font-size: 0.9rem;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.9rem;
+}
+
+/* Estilos de Edição */
+#area-edicao h3 {
+  color: #d32f2f;
+  margin-bottom: 6px;
+}
+
+.instrucoes-edicao {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+.tabela-edicao input {
+  width: 60px;
+  padding: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.tabela-edicao input.campo-invalido {
+  border-color: #c62828;
+  background-color: #ffebee;
+}
+
+.acoes-edicao {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* Destaques das Situações */
+.situacao-bom {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.situacao-atencao {
+  color: #c62828;
+  font-weight: bold;
+}
+
+.situacao-indisponivel {
+  color: #757575;
+  font-style: italic;
+}
+
+/* Estilos para a Área de Gráficos */
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.grafico-card {
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.grafico-card h2 {
+  font-size: 0.95rem;
+  color: #495057;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.grafico-header-faltas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.grafico-header-faltas h2 {
+  margin-bottom: 0;
+}
+
+.badge-perigo {
+  background-color: #c62828;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grafico-card.card-perigo {
+  border: 1px solid #c62828;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.15);
+}
+
+.grafico-container {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 280px;
+}
+
+/* Responsividade dos Gráficos */
+@media (max-width: 992px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .grafico-card:nth-child(3) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+  }
+  
+  .grafico-card:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .grafico-card:first-child .grafico-container {
+    min-height: 420px;
+  }
+}
